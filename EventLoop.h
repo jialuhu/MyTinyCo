@@ -14,8 +14,10 @@
 #include <map>
 #include <vector>
 #include "Noncopyable.h"
+#include "TimeEventSet.h"
 #include "SocketOpt.h"
 namespace SiNet {
+
     class Epoll;
 
     class Channel;
@@ -64,6 +66,11 @@ namespace SiNet {
         void removeRunInLoop(const std::shared_ptr<Channel> channel_);
         void removeChannelInLoop(const std::shared_ptr<Channel> channel_);
 
+        size_t runAfter(int64_t timeout, TimeEventCallback TimeEventCb);
+
+        size_t runAt(TimeEvent *timerAt, TimeEventCallback TimeEventCb);
+
+        size_t runAferEve(int64_t interval, TimeEventCallback TimeEventCb);
     private:
         std::unique_ptr<Poller> Poller_;
         //std::unique_ptr <Kqueue> Kqueue_;
@@ -75,7 +82,8 @@ namespace SiNet {
         bool quit_;
         bool looping_;
         bool callingPendingFunctors_;
-
+        //定时器任务
+        std::unique_ptr<TimeEventSet> TimeEventSet_;
         std::thread::id threadId_;
         std::mutex mutex_;
         std::vector<Functor> pendingFunctors_;

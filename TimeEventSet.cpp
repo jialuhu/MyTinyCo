@@ -2,6 +2,7 @@
 // Created by Jialu  Hu on 2020-01-28.
 //
 #include "TimeEventSet.h"
+#include "EventLoop.h"
 using namespace SiNet;
 size_t TimeEventSet::addTimeEvent(TimeEvent *timer){
     size_t id = TimeEventId_++;
@@ -34,7 +35,7 @@ void TimeEventSet::cancleTimeEvent(size_t id) {
     }
 }
 void TimeEventSet::exeTask() {
-    auto timenow = SiNet::nowTime();
+    auto timenow = Time::nowTime();
     while (true){
         auto it = TimeEvents_.begin()->get();
         auto expire = it->Return_expire();

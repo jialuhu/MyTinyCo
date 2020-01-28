@@ -6,14 +6,8 @@
 #define MYSNETCO_TIMEEVENT_H
 
 #include "CallBack.h"
+#include "Time.h"
 namespace SiNet{
-
-    int64_t nowTime()
-    {
-        struct timeval timev;
-        gettimeofday(&timev, nullptr);
-        return timev.tv_sec * 1000 + timev.tv_usec / 1000;
-    }
 
     //一个定时事件
     class TimeEvent{
