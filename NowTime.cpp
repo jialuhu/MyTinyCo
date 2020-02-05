@@ -3,7 +3,7 @@
 //
 
 #include <sys/time.h>
-#include "Time.h"
+#include "NowTime.h"
 using namespace SiNet;
 int64_t Time::nowTime()
 {

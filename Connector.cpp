@@ -10,13 +10,10 @@ void Connector::connect(){
     addr_.Init();
     int sockfd = socket_.sockfd();
     int ret = ::connect(sockfd, (struct sockaddr*)addr_.inetaddr(), sizeof(struct sockaddr_in));
-    std::cout << "ret = " << ret << std::endl;
 
     if (ret == 0) {
     // 如果服务端和客户端在同一台主机连接会立即建立
         if (connected_) return;
-        //loop_->removeRunInLoop(ConnectorChannle_);
-        //ConnectorChannle_.reset();
         if (newConnectionCb_) {
             newConnectionCb_(sockfd,addr_);
             connected_ = true;
