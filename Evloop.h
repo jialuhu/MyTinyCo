@@ -2,8 +2,8 @@
 // Created by Jialu  Hu on 2019-07-31.
 //
 
-#ifndef TINY_WEB_EVENTLOOP_H
-#define TINY_WEB_EVENTLOOP_H
+#ifndef TINY_WEB_EventLoop_H
+#define TINY_WEB_EventLoop_H
 
 #include <iostream>
 #include <atomic>
@@ -59,7 +59,7 @@ namespace SiNet {
         void assertInLoopThread() {
             if (!isInLoopThread()) {
                 std::cout << "Thread is non in this pthread!\n";
-                return;//此处应该有异常处理
+                exit(0);
             }
         }
 
@@ -94,4 +94,4 @@ namespace SiNet {
 
 
 
-#endif //TINY_WEB_EVENTLOOP_H
+#endif //TINY_WEB_EventLoop_H
