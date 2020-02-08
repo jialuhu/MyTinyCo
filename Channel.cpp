@@ -2,7 +2,7 @@
 // Created by Jialu  Hu on 2019-08-01.
 //
 #include "Channel.h"
-#include "EventLoop.h"
+#include "Evloop.h"
 using namespace SiNet;
 Channel ::Channel(EventLoop *eventLoop, int fd) :
         eloop_(eventLoop),

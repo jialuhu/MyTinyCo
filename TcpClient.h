@@ -5,10 +5,10 @@
 #ifndef MYSNETCO_TCPCLIENT_H
 #define MYSNETCO_TCPCLIENT_H
 
-#include "EventLoopthreadPool.h"
+#include "IOthreadpool.h"
 #include "Connector.h"
 #include "CallBack.h"
-#include "TcpConnection.h"
+#include "Tcpconn.h"
 #include <map>
 namespace SiNet {
     class TcpClient {
@@ -17,7 +17,7 @@ namespace SiNet {
 
         ~TcpClient();
 
-        void newConnection(int sockfd);
+        void CreateConnection(int sockfd);
 
         void start();
 
@@ -36,11 +36,7 @@ namespace SiNet {
         }
         const TcpConnectionPtr& conn() const { return conn_; }
 
-        EventLoop *getNextLoop();
-
         void removeConnection(const TcpConnectionPtr &conn);
-
-        void removeConnInLoop(const TcpConnectionPtr &conn);
 
     private:
         EventLoop *loop_;
@@ -50,7 +46,6 @@ namespace SiNet {
         TcpConnectionPtr conn_;
         ConnectionCallback ConnectionCb_;
         OnMessageCallback OnMessageCb_;
-        WriteCompleteCallback WriteCompleteCb_;
         CloseCallback CloseCb_;
     };
 }

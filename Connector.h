@@ -5,7 +5,7 @@
 #ifndef MYSNETCO_CONNECTOR_H
 #define MYSNETCO_CONNECTOR_H
 
-#include "EventLoop.h"
+#include "Evloop.h"
 #include "InetAddr.h"
 #include "SocketOpt.h"
 #include "Channel.h"

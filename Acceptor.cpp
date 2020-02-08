@@ -11,7 +11,6 @@ Acceptor::Acceptor(EventLoop *loop,
         socket_(SocketOpt::socket(),true)
         {
     addr_.Init();
-    SocketOpt::setnonblocking(socket_.sockfd());
     SocketOpt::bind(socket_.sockfd(),addr_.inetaddr());
     AcceptorChannle_->setReadCallback([this]{ this->handleAccept();});
 }

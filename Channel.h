@@ -54,8 +54,7 @@ namespace SiNet {
 
         //注册可读事件
         void enableReading() {
-            event_ = EREAD;
-            //event_ = EVFILT_READ;
+            event_ |= EREAD;
             update();
         }
 
@@ -65,9 +64,7 @@ namespace SiNet {
 
         //注册可写事件
         void enableWriting() {
-            std::cout << "enableWriting one\n";
             event_ |= EWRITE;
-            //event_ = EVFILT_WRITE;
             update();
         }
 
