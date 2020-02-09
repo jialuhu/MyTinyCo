@@ -18,10 +18,21 @@ log::~log() {
     ::close(fd_);
     thread_.join();
 }
+void log::wakeup() {
+    CondVar_.notify_one();
+}
+void log::stop() {
+    log::getLogger().wakeup();
+}
+void SignalDealBuff(int signal) {
+    //收到contol+c信号进行写入处理
+    log::stop();
 
+}
 void log::start() {
     mkdir("./.log",0777);
     createfile();
+    signal(SIGINT, SignalDealBuff);
 }
 
 void log::createfile() {
@@ -65,7 +76,7 @@ void log::threadFun() {
 void log::addwritebuff(const char *str,size_t len) {
     std::lock_guard<std::mutex> lock(Mutex_);
     writebuffer_.append(str,len);
-    if(writebuffer_.readable() >= 10){
+    if(writebuffer_.readable() >= maxbuffsize_){
         CondVar_.notify_one();
     }
 }

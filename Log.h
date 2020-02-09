@@ -23,14 +23,19 @@ namespace SiNet {
         void outputcontent(int level, const char *file, int line,
                 const char *func, const char* date,const char *fmt, ...);
         void addwritebuff(const char *str, size_t len);
-        void wakeup();
+        /*void wakeup(){
+            CondVar_.notify_one();
+        }*/
         void writefile();
         void createfile();
         LogLevel getloglevel(){
             return loglevel_;
         }
         static log &getLogger();
+        static void stop();
+        void wakeup();
     private:
+
         int writebyte;
         int fd_;
         LogLevel loglevel_;
