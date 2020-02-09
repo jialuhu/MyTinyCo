@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <chrono>
+#include <sys/time.h>
 using namespace SiNet;
 log::log():fd_(-1),
             writebyte(0),
@@ -24,7 +25,6 @@ void log::start() {
 }
 
 void log::createfile() {
-    std::cout << "crete the file\n";
     filepath_.clear();
     filepath_ = filepath_+"./.log/";
     time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -36,7 +36,6 @@ void log::createfile() {
             ptminfo->tm_min, ptminfo->tm_sec);
     filepath_ += date;
     filepath_ +=".log";
-    std::cout << "filepath: " << filepath_ << std::endl;
     int fd = open(filepath_.c_str(), O_RDWR|O_APPEND|O_CREAT,0664);
     if(fd < 0 ){
 
@@ -63,21 +62,16 @@ void log::threadFun() {
     }
 }
 
-void log::addwritebuff(std::string &content) {
-    int len = content.size();
+void log::addwritebuff(const char *str,size_t len) {
     std::lock_guard<std::mutex> lock(Mutex_);
-    writebuffer_.append(content.c_str(),len);
+    writebuffer_.append(str,len);
     if(writebuffer_.readable() >= 10){
         CondVar_.notify_one();
     }
 }
 
 void log::writefile() {
-    std::cout << "fd is " << fd_ << " flush is " << flushbuffer_.c_str() << std:: endl;
-    char buf[256]={"sdfsdfsfdjlfjsd"};
-    //int ret = ::write(fd_, buf, strlen(buf));
     int ret = ::write(fd_, flushbuffer_.peek(), flushbuffer_.readable());
-    std::cout << "fd is " << fd_ << " ret is " << ret << std:: endl;
     writebyte += flushbuffer_.readable();
     flushbuffer_.retrieve(flushbuffer_.readable());
     if(writebyte == maxfilesize){
@@ -90,17 +84,37 @@ void log::outputcontent(int level, const char *file,
         int line, const char *func,
         const char *date, const char *fmt,
                         ...){
-    std::cout << "level:" << level << "  file:" << file << "  line:" << line << " date:"
-    << date << "  fmt:" << fmt << std:: endl;
-    std::string str{""};
-    if(level==log::debug){
-        str += "[debug]: ";
+    time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    struct tm * ptminfo = localtime(&tt);
+    char dates[60] = { 0 };
+    sprintf(dates, "%02d-%02d-%02d %02d:%02d:%02d",
+            ptminfo->tm_year + 1900, ptminfo->tm_mon + 1,
+            ptminfo->tm_mday, ptminfo->tm_hour,
+            ptminfo->tm_min, ptminfo->tm_sec);
+    char level_[10];
+    if(level == log::debug){
+        sprintf(level_,"debug");
+    }else if(level == log::errnos){
+        sprintf(level_,"errnos");
+    }else if(level == log::fatal){
+        sprintf(level_,"fatal");
     }
-    str += date;
-    str += "  ";
-    str += func;
-    str += "  ";
-    str += '['+fmt+']';
-    str += "  ";
-    getLogger().addwritebuff(str);
+    char *function = new char[strlen(func)];
+    sprintf(function,"%s",func);
+    char *filePath = new char[strlen(file)];
+    sprintf(filePath,"%s",file);
+    char buf[4096];
+    sprintf(buf,"[Level]%s  [Time] %s  [Function] %s  [FilePath] %s [Line] %d  [Content] ",
+            level_,dates,function,filePath,line);
+    int len = strlen(buf);
+    va_list args;
+    va_start(args, fmt);
+    int n = vsnprintf(buf+len,(4094-len),fmt,args);
+    sprintf(buf+len+n,"\n");
+    buf[strlen(buf+1)] = '\0';
+    std::cout << "buf: ";
+    std::cout << buf << std::endl;
+    delete [] function;
+    delete [] filePath;
+    addwritebuff(buf,strlen(buf));
 }

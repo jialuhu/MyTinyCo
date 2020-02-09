@@ -22,7 +22,7 @@ namespace SiNet {
         void threadFun();
         void outputcontent(int level, const char *file, int line,
                 const char *func, const char* date,const char *fmt, ...);
-        void addwritebuff(std::string &content);
+        void addwritebuff(const char *str, size_t len);
         void wakeup();
         void writefile();
         void createfile();
