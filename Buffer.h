@@ -44,6 +44,13 @@ namespace SiNet {
             }
         }
 
+        void swap(Buffer& _buffer)
+        {
+            _buf.swap(_buffer._buf);
+            std::swap(_readindex, _buffer._readindex);
+            std::swap(_writeindex, _buffer._writeindex);
+        }
+
         std::string &Buffer_str(std::string &s1) {
             int len = readable();
             s1.clear();
