@@ -110,10 +110,10 @@ void log::outputcontent(int level, const char *file,
     va_list args;
     va_start(args, fmt);
     int n = vsnprintf(buf+len,(4094-len),fmt,args);
-    sprintf(buf+len+n,"\n");
-    buf[strlen(buf+1)] = '\0';
+    buf[len+n] = '\n';
+    buf[len+n+1] = '\0';
     std::cout << "buf: ";
-    std::cout << buf << std::endl;
+    std::cout << buf;
     delete [] function;
     delete [] filePath;
     addwritebuff(buf,strlen(buf));

@@ -6,7 +6,7 @@
 #define MYSNETCO_TIMEEVENT_H
 
 #include "CallBack.h"
-#include "Time.h"
+#include "NowTime.h"
 namespace SiNet{
 
     //一个定时事件

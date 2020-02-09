@@ -35,7 +35,6 @@ void TcpClient::CreateConnection(int sockfd) {
     conn_->setMessageCb(OnMessageCb_);
     conn_->setCloseCb(std::bind(&TcpClient::removeConnection, this, std::placeholders::_1));
     if (ConnectionCb_) {
-        std::cout << "connect is succeful\n";
         loop_->runInLoop(
                 [this] { this->ConnectionCb_(conn_); });
     }

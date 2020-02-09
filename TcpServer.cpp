@@ -3,6 +3,7 @@
 //
 #include "TcpServer.h"
 #include "IOthread.h"
+#include "Log.h"
 using namespace SiNet;
 TcpServer::TcpServer(EventLoop *loop, InetAddr &listenAddr):
             loop_(loop),
@@ -40,6 +41,7 @@ EventLoop* TcpServer::getNextLoop() {
     }
 }
 void TcpServer::newConnection(int connfd) {
+    logDebug("this is new Connection.");
     //此处建立相对应的连接事件，并且设置读写事件
      char buf[13]={"HELLO"};
      countId++;
