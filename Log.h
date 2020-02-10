@@ -23,14 +23,12 @@ namespace SiNet {
         void outputcontent(int level, const char *file, int line,
                 const char *func, const char* date,const char *fmt, ...);
         void addwritebuff(const char *str, size_t len);
-        /*void wakeup(){
-            CondVar_.notify_one();
-        }*/
         void writefile();
         void createfile();
         LogLevel getloglevel(){
             return loglevel_;
         }
+        void setLevel(SiNet::log::LogLevel level);
         static log &getLogger();
         static void stop();
         void wakeup();
@@ -50,21 +48,20 @@ namespace SiNet {
         static const int maxfilesize = 1024*1024;
     };
 }
-extern SiNet::log __logger;
-/*namespace SiNet {
 
-    void output(int level, const char *file, int line,
-                const char *func, const char* date,const char *fmt, ...);
-
-    extern int __loggerLevel;
-
-// 设置打印的日志级别
-// 如果设置为WARN，则只打印>=WARN级别的日志
-    void setLoggerLevel(int level);
-
-}*/
 #define logDebug(...) \
     if (SiNet::log::debug >= SiNet::log::getLogger().getloglevel()) \
         SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
-
+#define logInfo(...) \
+    if (SiNet::log::info >= SiNet::log::getLogger().getloglevel()) \
+        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+#define logWarn(...) \
+    if (SiNet::log::warn >= SiNet::log::getLogger().getloglevel()) \
+        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+#define logErrnos(...) \
+    if (SiNet::log::errnos >= SiNet::log::getLogger().getloglevel()) \
+        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+#define logFatal(...) \
+    if (SiNet::log::fatal >= SiNet::log::getLogger().getloglevel()) \
+        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #endif //MYSNETCO_LOG_H
