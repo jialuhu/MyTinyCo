@@ -4,13 +4,13 @@
 #include "Channel.h"
 #include "Connector.h"
 #include "InetAddr.h"
+#include "Log.h"
 using namespace SiNet;
 
 void Connector::connect(){
     addr_.Init();
     int sockfd = socket_.sockfd();
     int ret = ::connect(sockfd, (struct sockaddr*)addr_.inetaddr(), sizeof(struct sockaddr_in));
-    std::cout << "ret: " << ret << std::endl;
     if (ret == 0) {
     // 如果服务端和客户端在同一台主机连接会立即建立
         if (connected_) return;
@@ -30,10 +30,10 @@ void Connector::connect(){
                     [this, sockfd]{ this->check(sockfd); });
             ConnectorChannle_->enableWriting();
         }else{
-            std::cout << "Connector is wrong\n";
+            logWarn("Connector is errno.");
         }
     }else{
-        std::cout << "Connector is wrong\n";
+        logWarn("Connector is errno.");
     }
 }
 
@@ -47,6 +47,7 @@ void Connector::connected(int sockfd)
         newConnectionCb_(sockfd,addr_);
         connected_ = true;
     } else{
+        logDebug("conneted is failt.");
         loop_->quit();
     }
 }
@@ -55,7 +56,7 @@ void Connector::check(int sockfd)
     socklen_t err;
     socklen_t len = sizeof(err);
     if (::getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &err, &len) < 0){
-        std::cout << errno << std::endl;
+        logFatal("Getsockopt is wrong.");
     }
     connected(sockfd);
 }

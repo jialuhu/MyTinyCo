@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include "Log.h"
 
 using namespace SiNet;
 InetAddr::InetAddr(int port,const char* c_addr):port_(port),c_addr_(c_addr) {
@@ -24,7 +25,7 @@ void InetAddr :: Init(){
     address_.sin_family = AF_INET;
     address_.sin_port = htons(port_);
     if (inet_pton(AF_INET, c_addr_, &address_.sin_addr) <= 0){
-        std::cout << "inet_pton is wrong\n";
+        logFatal("InetAddr::Init Inet_pton is wrong.");
         exit(0);
     }
 }

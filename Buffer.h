@@ -18,11 +18,9 @@ namespace SiNet {
     class Buffer : Noncopyable{
     public:
         Buffer() : _buf(INIT_SIZE) {
-
         }
 
         ~Buffer() {
-
         }
 
         void append(const char *data, size_t len) {

@@ -39,7 +39,7 @@ EventLoop ::EventLoop() :
         #endif
     //判断是否是属于本线程
     if(t_loopInThisThread){
-        std::cout << "This thread is used\n";
+        logWarn("This thread is used.");
     }
     else{
         t_loopInThisThread = this;
@@ -62,7 +62,7 @@ void EventLoop::updateChannel(Channel* channel) {
 }
 
 void EventLoop::loop() {
-    logDebug("this is loop test");
+    logDebug("EventLoop is running in loop.");
     initwake();
     assert(!looping_);
     looping_ = true;
@@ -88,10 +88,12 @@ void EventLoop::runInLoop(const Functor &cb) {
     //如果是当前IO线程调用，则直接可以执行，即同步执行；
     //如果不是在当前线程调用的runInLoop，则加入任务队列，IO线程会被唤醒执行该回调
     if(isInLoopThread()){
+        logInfo("EventLoop::runInloop is running.");
         cb();
     }
     else{
         /*RunInLoop不在当前线程，加入队列稍后执行*/
+        logWarn("EventLoop::runInloop is not in loop.");
         queueInLoop(cb);
     }
 }
@@ -126,7 +128,7 @@ void EventLoop::wakeup() {
     //向wakeupFd[1]写入8个字节，唤醒阻塞线程
     size_t n = ::write(wakeupFd[1],&one, sizeof(one));
     if(n != sizeof(one)){
-        std::cout << "EventLoop wakeup is wrong bites: " << sizeof(one) << std::endl;
+        logFatal("EventLoop::wakeup is wrong.");
     }
 }
 
@@ -134,7 +136,7 @@ void EventLoop::handleread() {
     uint64_t one;
     size_t n = ::read(wakeupFd[0], &one, sizeof(one));
     if(n != sizeof(one)){
-        std::cout << "EventLoop handleread is wrong bites: " << sizeof(one) << std::endl;
+        logFatal("EventLoop::handleread is wrong.");
     }
 }
 /**为什么要在这两种情况下有必要唤醒IO线程？

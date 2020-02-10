@@ -3,6 +3,7 @@
 //
 
 #include "Buffer.h"
+#include "Log.h"
 // 将fd中的数据读到Buffer中
 using namespace SiNet;
 size_t Buffer::readFd(int fd, int &save)

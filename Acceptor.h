@@ -10,6 +10,7 @@
 #include "Socket.h"
 #include "InetAddr.h"
 #include "SocketOpt.h"
+#include "Log.h"
 namespace SiNet {
     class Acceptor : Noncopyable {
 //在acceptor类中进行该服务器套接字的绑定和监听，并设置注册回调函数

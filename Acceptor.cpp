@@ -13,10 +13,12 @@ Acceptor::Acceptor(EventLoop *loop,
     addr_.Init();
     SocketOpt::bind(socket_.sockfd(),addr_.inetaddr());
     AcceptorChannle_->setReadCallback([this]{ this->handleAccept();});
+    logInfo("Acceptor is created.");
 }
 
 Acceptor::~Acceptor() {
     std::cout << "~Acceptor\n";
+    logInfo("Acceptor is destructor.");
 
 }
 

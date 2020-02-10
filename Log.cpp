@@ -143,9 +143,10 @@ void log::outputcontent(int level, const char *file,
     sprintf(function,"%s",func);
     char *filePath = new char[strlen(file)];
     sprintf(filePath,"%s",file);
+    std::thread::id thread_id = std::this_thread::get_id();
     char buf[4096];
-    sprintf(buf,"[Level]%s  [Time] %s  [Function] %s  [FilePath] %s [Line] %d  [Content] ",
-            level_,dates,function,filePath,line);
+    sprintf(buf,"[Level] %s  [Time] %s  [Function] %s  [FilePath] %s [Line] %d  [ThreadId] %d  [Content] ",
+            level_,dates,function,filePath,line,thread_id);
     int len = strlen(buf);
     va_list args;
     va_start(args, fmt);

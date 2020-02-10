@@ -13,10 +13,11 @@ Channel ::Channel(EventLoop *eventLoop, int fd) :
         iswrite(false),
         indx(-1)
         {
-
+    logInfo("No.%d Channel is created.",fd_);
 }
 
 Channel :: ~Channel(){
+    logInfo("No.%d Channel is destructor.",fd_);
 }
 
 //更新时间表

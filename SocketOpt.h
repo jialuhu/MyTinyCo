@@ -10,6 +10,7 @@
 #include <sys/types.h>
 #include <assert.h>
 #include <fcntl.h>
+#include "Log.h"
 namespace SiNet {
     namespace SocketOpt {
         int socket();

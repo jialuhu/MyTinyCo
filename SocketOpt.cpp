@@ -28,6 +28,9 @@ int SocketOpt::connect(int sockfd, struct sockaddr_in *addr)
 }
 void SocketOpt::listen(int socketfd) {
     int ret = ::listen(socketfd, 1024);
+    if(ret < 0){
+        logWarn("Function of listen is wrong.");
+    }
     assert(ret >= 0);
 }
 
@@ -46,8 +49,6 @@ int SocketOpt::setnonblocking(int fd) {
 }
 
 void SocketOpt :: socketpair(int wakeup[]){
-    //int wakeupfd[2];
     int ret = ::socketpair(AF_UNIX,SOCK_STREAM,0,wakeup);
     assert(ret!=-1);
-    //return wakeup;
 }

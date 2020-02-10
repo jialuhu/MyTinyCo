@@ -89,7 +89,6 @@ namespace SiNet {
         //不可再写
         void disableWriting() {
             event_ &= ~EWRITE;
-            //iswrite = true;
             update();
         }
 

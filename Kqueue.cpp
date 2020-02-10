@@ -177,6 +177,7 @@ bool Kqueue::Change(Channel* channel,int fd){
         }
         int ret = kevent(kqfd, changes, 1, nullptr, 0, nullptr);
         if (ret == -1) {
+            logFatal("Kqueue::Change is wrong of kevent");
             return false;
         }
     }

@@ -23,7 +23,6 @@ namespace SiNet{
                     socket_(SocketOpt::socket(),false),
                     ConnectorChannle_(new Channel{loop,socket_.sockfd()}){
             addr_.Init();
-            //SocketOpt::setnonblocking(socket_.sockfd());
         }
         ~Connector(){
 
