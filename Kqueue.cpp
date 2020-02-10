@@ -6,7 +6,9 @@
 #include "Channel.h"
 using namespace SiNet;
 const int MAXSIZE = 1024;
-Epoll::Epoll():epfd_(epoll_create(1)){
+Epoll::Epoll():epfd_(){
+    epfd_ = epoll_create(1);
+
     EpList_.resize(MAXSIZE);
 }
 
@@ -122,6 +124,7 @@ int Epoll::ReturnEvent(int &event) {
 }
 #elif defined(OS_MACOSX)
 #include "Kqueue.h"
+#include "Log.h"
 using namespace SiNet;
 Kqueue::Kqueue():kqfd(::kqueue()){
     assert(kqfd>0);

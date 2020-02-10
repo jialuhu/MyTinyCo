@@ -11,6 +11,7 @@
 #include "Kqueue.h"
 #endif
 #include "Poller.h"
+#include "Log.h"
 
 using namespace SiNet;
 class IgnoreSignal{
@@ -61,6 +62,7 @@ void EventLoop::updateChannel(Channel* channel) {
 }
 
 void EventLoop::loop() {
+    logDebug("this is loop test");
     initwake();
     assert(!looping_);
     looping_ = true;

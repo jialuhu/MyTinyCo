@@ -54,14 +54,14 @@ namespace SiNet {
         SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #define logInfo(...) \
     if (SiNet::log::info >= SiNet::log::getLogger().getloglevel()) \
-        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+        SiNet::log::getLogger().outputcontent(SiNet::log::info, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #define logWarn(...) \
     if (SiNet::log::warn >= SiNet::log::getLogger().getloglevel()) \
-        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+        SiNet::log::getLogger().outputcontent(SiNet::log::warn, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #define logErrnos(...) \
     if (SiNet::log::errnos >= SiNet::log::getLogger().getloglevel()) \
-        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+        SiNet::log::getLogger().outputcontent(SiNet::log::errnos, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #define logFatal(...) \
     if (SiNet::log::fatal >= SiNet::log::getLogger().getloglevel()) \
-        SiNet::log::getLogger().outputcontent(SiNet::log::debug, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
+        SiNet::log::getLogger().outputcontent(SiNet::log::fatal, __FILE__, __LINE__, __func__, __DATE__,__VA_ARGS__)
 #endif //MYSNETCO_LOG_H
