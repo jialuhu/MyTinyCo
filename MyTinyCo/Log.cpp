@@ -153,8 +153,6 @@ void log::outputcontent(int level, const char *file,
     int n = vsnprintf(buf+len,(4094-len),fmt,args);
     buf[len+n] = '\n';
     buf[len+n+1] = '\0';
-    std::cout << "buf: ";
-    std::cout << buf;
     delete [] function;
     delete [] filePath;
     addwritebuff(buf,strlen(buf));
