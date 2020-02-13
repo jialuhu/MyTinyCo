@@ -7,7 +7,7 @@
 #include <stdio.h>
 using namespace SiNet;
 void onConnection(const TcpConnectionPtr &conn){
-    std::cout << "Discard Server is satared!\n";
+    std::cout << "Discard Server is running!\n";
 }
 void onMessage(const TcpConnectionPtr& conn, Buffer& buff){
     std::cout << "Discard is working\n";
