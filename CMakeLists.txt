@@ -15,7 +15,7 @@ list(APPEND MyTinyCo_SRCS
         ${PROJECT_SOURCE_DIR}/MyTinyCo/IOthread.cpp
         ${PROJECT_SOURCE_DIR}/MyTinyCo/IOthreadpool.cpp
         ${PROJECT_SOURCE_DIR}/MyTinyCo/InetAddr.cpp
-        ${PROJECT_SOURCE_DIR}/MyTinyCo/Kqueue.cpp
+        ${PROJECT_SOURCE_DIR}/MyTinyCo/IoPoller.cpp
         ${PROJECT_SOURCE_DIR}/MyTinyCo/SocketOpt.cpp
         ${PROJECT_SOURCE_DIR}/MyTinyCo/Tcpconn.cpp
         ${PROJECT_SOURCE_DIR}/MyTinyCo/TcpServer.cpp
@@ -66,7 +66,7 @@ if(BUILD_MyTinyCo_SHARED_LIBRARY OR BUILD_MyTinyCo_STATIC_LIBRARY)
             ${PROJECT_SOURCE_DIR}/MyTinyCo/InetAddr.h
             ${PROJECT_SOURCE_DIR}/MyTinyCo/IOthread.h
             ${PROJECT_SOURCE_DIR}/MyTinyCo/IOthreadpool.h
-            ${PROJECT_SOURCE_DIR}/MyTinyCo/Kqueue.h
+            ${PROJECT_SOURCE_DIR}/MyTinyCo/IoPoller.h
             ${PROJECT_SOURCE_DIR}/MyTinyCo/Log.h
             ${PROJECT_SOURCE_DIR}/MyTinyCo/Noncopyable.h
             ${PROJECT_SOURCE_DIR}/MyTinyCo/NowTime.h
