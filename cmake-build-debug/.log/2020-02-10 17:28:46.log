@@ -1,0 +1,5 @@
+[Level]debug  [Time] 2020-02-10 17:28:46:540  [Function] main  [FilePath] /Users/jialuhu/CLionProjects/MySNetCo/main.cpp [Line] 145  [Content] this is main test
+[Level]debug  [Time] 2020-02-10 17:28:46:540  [Function] main  [FilePath] /Users/jialuhu/CLionProjects/MySNetCo/main.cpp [Line] 146  [Content] this is main test
+[Level]errnos  [Time] 2020-02-10 17:28:46:540  [Function] main  [FilePath] /Users/jialuhu/CLionProjects/MySNetCo/main.cpp [Line] 147  [Content] this is errnos test
+[Level]fatal  [Time] 2020-02-10 17:28:46:540  [Function] main  [FilePath] /Users/jialuhu/CLionProjects/MySNetCo/main.cpp [Line] 148  [Content] this is fatal test
+[Level]debug  [Time] 2020-02-10 17:28:46:540  [Function] loop  [FilePath] /Users/jialuhu/CLionProjects/MySNetCo/Evloop.cpp [Line] 65  [Content] this is loop test

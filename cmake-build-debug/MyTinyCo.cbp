@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MyTinyCo"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="echo-svr">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/echo-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 echo-svr"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="echo-svr/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/echo-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 echo-svr/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="daytime-svr">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/daytime-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 daytime-svr"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="daytime-svr/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/daytime-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 daytime-svr/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discard-cli">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/discard-cli" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 discard-cli"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discard-cli/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/discard-cli" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 discard-cli/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discard-svr">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/discard-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 discard-svr"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="discard-svr/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/discard-svr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 discard-svr/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="echo-cli">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/echo-cli" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 echo-cli"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="echo-cli/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/echo-cli" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 echo-cli/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyTinyCo_S">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/libMyTinyCo_S.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyTinyCo_S"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyTinyCo_S/fast">
+				<Option output="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/libMyTinyCo_S.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DOS_MACOSX"/>
+					<Add directory="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/x86_64-apple-darwin16.7.0"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/../../../../../../include/c++/8.3.0/backward"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/include"/>
+					<Add directory="/usr/local/Cellar/gcc/8.3.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyTinyCo_S/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jialuhu/CLionProjects/MySNetCo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Acceptor.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Acceptor.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Buffer.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Buffer.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Channel.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Channel.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Connector.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Connector.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Evloop.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Evloop.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IOthread.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IOthread.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IOthreadpool.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IOthreadpool.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/InetAddr.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/InetAddr.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IoPoller.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/IoPoller.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Log.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Log.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/NowTime.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/NowTime.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/SocketOpt.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/SocketOpt.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Taskthreadpool.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Taskthreadpool.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TcpClient.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TcpClient.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TcpServer.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TcpServer.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Tcpconn.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/Tcpconn.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TimeEventSet.cpp">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/MyTinyCo/TimeEventSet.h">
+			<Option target="MyTinyCo_S"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/example/DaytimeServer.cpp">
+			<Option target="daytime-svr"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/example/DiscardClient.cpp">
+			<Option target="discard-cli"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/example/DiscardServer.cpp">
+			<Option target="discard-svr"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/example/EchoClient.cpp">
+			<Option target="echo-cli"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/example/EchoServer.cpp">
+			<Option target="echo-svr"/>
+		</Unit>
+		<Unit filename="/Users/jialuhu/CLionProjects/MySNetCo/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

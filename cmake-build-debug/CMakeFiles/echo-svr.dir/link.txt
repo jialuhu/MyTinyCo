@@ -1,0 +1,1 @@
+/usr/local/Cellar/gcc/8.3.0/bin/g++-8  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/echo-svr.dir/example/EchoServer.cpp.o  -o echo-svr libMyTinyCo_S.a 

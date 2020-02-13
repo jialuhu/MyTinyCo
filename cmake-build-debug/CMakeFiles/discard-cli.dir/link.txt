@@ -1,0 +1,1 @@
+/usr/local/Cellar/gcc/8.3.0/bin/g++-8  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/discard-cli.dir/example/DiscardClient.cpp.o  -o discard-cli libMyTinyCo_S.a 
