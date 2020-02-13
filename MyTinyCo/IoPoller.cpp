@@ -123,17 +123,17 @@ int Epoll::ReturnEvent(int &event) {
     return res;
 }
 #elif defined(OS_MACOSX)
-#include "Kqueue.h"
+#include "IoPoller.h"
 #include "Log.h"
 using namespace SiNet;
-Kqueue::Kqueue():kqfd(::kqueue()){
+IoPoller::IoPoller():kqfd(::kqueue()){
     assert(kqfd>0);
 }
 
-Kqueue::~Kqueue(){
+IoPoller::~IoPoller(){
     ::close(kqfd);
 }
-bool Kqueue::Register(Channel* channel,int fd) {
+bool IoPoller::Register(Channel* channel,int fd) {
     struct kevent changes[1];
     EV_SET(&changes[0], fd, EVFILT_READ, EV_ADD, 0, 0, NULL);
     kqfds_.push_back(changes[0]);
@@ -149,7 +149,7 @@ bool Kqueue::Register(Channel* channel,int fd) {
     return true;
 }
 
-bool Kqueue::Change(Channel* channel,int fd){
+bool IoPoller::Change(Channel* channel,int fd){
     struct kevent changes[1];
     if(channel->is_close()){
         if(channel->index() == (kqfds_.size()-1))
@@ -171,20 +171,26 @@ bool Kqueue::Change(Channel* channel,int fd){
     }else {
         if (channel->event() & Channel::EREAD) {
             EV_SET(&changes[0], fd, EVFILT_READ, EV_ADD, 0, 0, NULL);
+            int ret = kevent(kqfd, changes, 1, nullptr, 0, nullptr);
+            if (ret == -1) {
+                logFatal("IoPoller::Change is wrong of kevent");
+                return false;
+            }
         }
         if (channel->event() & Channel::EWRITE) {
             EV_SET(&changes[0], fd, EVFILT_WRITE, EV_ADD, 0, 0, NULL);
+            int ret = kevent(kqfd, changes, 1, nullptr, 0, nullptr);
+            if (ret == -1) {
+                logFatal("IoPoller::Change is wrong of kevent");
+                return false;
+            }
         }
-        int ret = kevent(kqfd, changes, 1, nullptr, 0, nullptr);
-        if (ret == -1) {
-            logFatal("Kqueue::Change is wrong of kevent");
-            return false;
-        }
+
     }
     return true;
 }
 
-void Kqueue::updateChannel(Channel* channel) {
+void IoPoller::updateChannel(Channel* channel) {
     int idx = channel->index();
     int kfd = channel -> fd();
     if(idx<0){
@@ -203,7 +209,7 @@ void Kqueue::updateChannel(Channel* channel) {
 }
 const int MAX_EVENT_COUNT = 5000;
 
-int Kqueue::ReturnEvent(int &ev) {
+int IoPoller::ReturnEvent(int &ev) {
     int rets = 0;
     if(ev == EVFILT_READ){
         rets = Channel::EREAD;
@@ -215,7 +221,7 @@ int Kqueue::ReturnEvent(int &ev) {
     return rets;
 }
 
-int Kqueue::loop_wait(int timeout, std::vector<Channel*>* activeChannel){
+int IoPoller::loop_wait(int timeout, std::vector<Channel*>* activeChannel){
     for(auto it=channels_.begin();it!=channels_.end();it++){
         int id = it->first;
     }

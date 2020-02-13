@@ -28,6 +28,16 @@ namespace SiNet {
             std::copy(data, data + len, _buf.begin() + _writeindex);
             _writeindex += len;
         }
+        int findStr(char *s, const char *p, size_t plen)
+        {
+            const char *pattern = std::search(s, begin() + _writeindex, p, p + plen);
+            return pattern == begin() + _writeindex ? -1 : pattern - s;
+        }
+        int findStr(const char *s, size_t len)
+        {
+            return findStr(peek(), s, len);
+        }
+        int findCrlf() { return findStr("\r\n", 2); }
 
         //扩展空间以及将内容往前挪动
         void makeSpace(size_t len) {
@@ -64,11 +74,6 @@ namespace SiNet {
             makeSpace(1);
             _buf[_writeindex] = '\0';
             return peek();
-        }
-
-        int findStr(char *s, const char *p, size_t plen) {
-            const char *pattern = std::search(s, begin() + _writeindex, p, p + plen);
-            return pattern == begin() + _writeindex ? -1 : pattern - s;
         }
 
         // 更新缓冲区

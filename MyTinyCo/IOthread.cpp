@@ -8,7 +8,6 @@ EventLoopthread::EventLoopthread():
         loop_(nullptr),
         thread_([this]{this->threadFunc();})
 {
-    //进行线程分离，保证该线程不被其他线程回收资源
     thread_.detach();
 }
 

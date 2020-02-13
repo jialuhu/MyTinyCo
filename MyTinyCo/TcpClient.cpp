@@ -24,7 +24,7 @@ void TcpClient::start() {
 }
 
 void TcpClient::CreateConnection(int sockfd) {
-    char buf[13] = {"HELLO"};
+    char buf[13] = {"TinyConn"};
     countId_++;
     sprintf(buf, "%s_%d", buf, countId_++);
     /**

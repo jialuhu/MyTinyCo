@@ -22,7 +22,7 @@ namespace SiNet {
 
     class Channel;
 
-    class Kqueue;
+    class IoPoller;
 
     class Poller;
 
@@ -73,7 +73,7 @@ namespace SiNet {
         size_t runAferEve(int64_t interval, TimeEventCallback TimeEventCb);
     private:
         std::unique_ptr<Poller> Poller_;
-        //std::unique_ptr <Kqueue> Kqueue_;
+        //std::unique_ptr <IoPoller> Kqueue_;
         std::shared_ptr<Channel> wakeupChannel_;
         std::vector<Channel*> activeChannel_;
         //wakeupFd[0]读

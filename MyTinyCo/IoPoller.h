@@ -51,11 +51,11 @@ namespace SiNet {
 #include <vector>
 #include <map>
 namespace SiNet {
-    class Kqueue : public Poller {
+    class IoPoller : public Poller {
     public:
-        Kqueue();
+        IoPoller();
 
-        ~Kqueue();
+        ~IoPoller();
 
         virtual void updateChannel(Channel* channel);
 

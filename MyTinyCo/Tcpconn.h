@@ -92,6 +92,10 @@ namespace SiNet {
         void sendInNotIoThread(const std::string& data);
         void send(const char *s, size_t len);
 
+        void Post_deal(const char* file_path, const char *argv);
+        void set_Handlewrite(const char* filepath, int fd,std::string &head);
+
+
     private:
         typedef std::function<void(TcpConnection &)> ConnectionCallbacks;
 
@@ -120,6 +124,8 @@ namespace SiNet {
         std::string respond_head;
         Buffer output_;
         boost::any context_;
+        const char* file_path_;
+        const char* argv_;
 
     };
 }

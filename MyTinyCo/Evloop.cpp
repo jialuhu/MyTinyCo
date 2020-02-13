@@ -4,11 +4,11 @@
 #include <fcntl.h>
 #include "Evloop.h"
 #include "Channel.h"
-#include "Kqueue.h"
+#include "IoPoller.h"
 #ifdef OS_LINUX
 #include "Epoll.h"
 #elif defined(OS_MACOSX)
-#include "Kqueue.h"
+#include "IoPoller.h"
 #endif
 #include "Poller.h"
 #include "Log.h"
@@ -35,7 +35,7 @@ EventLoop ::EventLoop() :
         #ifdef OS_LINUX
         Poller_.reset(new Epoll);
         #elif defined(OS_MACOSX)
-        Poller_.reset(new Kqueue());
+        Poller_.reset(new IoPoller());
         #endif
     //判断是否是属于本线程
     if(t_loopInThisThread){

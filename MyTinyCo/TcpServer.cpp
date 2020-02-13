@@ -16,8 +16,7 @@ TcpServer::TcpServer(EventLoop *loop, InetAddr &listenAddr):
 }
 
 TcpServer::~TcpServer() {
-    std::cout << "~TcpServer\n";
-
+    logInfo("The destructor of TcpServer.");
 }
 
 void TcpServer::setThreadNumber(int threadnumber)  {
@@ -25,7 +24,6 @@ void TcpServer::setThreadNumber(int threadnumber)  {
 }
 
 void TcpServer::start() {
-    std::cout << "Hello, World!" << std::endl;
     acceptor_->listen();
 
 }

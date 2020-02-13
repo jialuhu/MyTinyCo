@@ -17,7 +17,6 @@ Acceptor::Acceptor(EventLoop *loop,
 }
 
 Acceptor::~Acceptor() {
-    std::cout << "~Acceptor\n";
     logInfo("Acceptor is destructor.");
 
 }
@@ -33,7 +32,6 @@ void Acceptor::handleAccept() {
     int connfd = SocketOpt::accept(socket_.sockfd());
     SocketOpt::setnonblocking(connfd);
     if(connfd > 0){
-        std::cout << "连接成功\n";
         if(_newConnectionCb){
             _newConnectionCb(connfd,addr_);
         }else{

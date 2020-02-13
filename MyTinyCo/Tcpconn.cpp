@@ -39,11 +39,15 @@ void TcpConnection::HandleRead(){
     if(bytes>0){
         if(onMessageCb_)
             onMessageCb_(shared_from_this(),input_);
+        else{
+            input_.retrieve(input_.readable());
+        }
     }
     else{
         HandleClose();
     }
 }
+
 void TcpConnection::HandleClose() {
   if(CloseCb_){
       loop_->runInLoop(std::bind(CloseCb_, shared_from_this()));
@@ -70,13 +74,13 @@ void TcpConnection::HandleWrite(){
     if (channel_->isWriting()) {
         ssize_t n = ::write(channel_->fd(), output_.peek(),output_.readable());
         if (n >= 0) {
-            output_.retrieve(n);
-            if (output_.readable() == 0) {
+            if (output_.readable() == n) {
+                output_.retrieve(n);
                 channel_->disableWriting();
-                    HandleClose();
+                HandleClose();
+            }else{
+                output_.update(n);
             }
-            //更新
-            output_.update(n);
         } else {
             // 对端尚未与我们建立连接或者对端已关闭连接
             if (errno == ECONNRESET || errno == EPIPE) {
@@ -114,8 +118,9 @@ void TcpConnection::sendInLoop(const char *data, size_t len)
     }
     if (remainBytes > 0) {
         output_.append(data + n, len - n);
-        if (!channel_->isWriting())
-            channel_->enableReading();
+        if (!channel_->isWriting()){
+            channel_->enableWriting();
+        }
     }
 }
 
@@ -150,3 +155,27 @@ void TcpConnection::send(const void *v, size_t len)
 {
     send(reinterpret_cast<const char*>(v), len);
 }
+
+
+void TcpConnection::Post_deal(const char* file_path, const char *argv){
+    file_path_=file_path;
+    argv_=argv;
+    if(fork()==0)
+    {
+        dup2(channel_->fd(),STDOUT_FILENO);
+        int r=execl(file_path_,argv_,NULL);
+    }
+    wait(nullptr);
+}
+void TcpConnection::set_Handlewrite(const char* filepath, int fd,std::string &head) {
+    write(channel_->fd(),head.c_str(),head.size());
+    int save;
+    int sum = 0;
+    int n;
+    output_.readFd(fd,save);
+    while ((n=output_.readFd(fd,save))>0){
+        sum += n;
+    }
+    channel_->enableWriting();
+}
+
