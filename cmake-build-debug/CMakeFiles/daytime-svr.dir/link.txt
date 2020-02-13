@@ -1,1 +1,0 @@
-/usr/local/Cellar/gcc/8.3.0/bin/g++-8  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/daytime-svr.dir/example/DaytimeServer.cpp.o  -o daytime-svr libMyTinyCo_S.a 
