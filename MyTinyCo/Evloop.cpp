@@ -5,13 +5,9 @@
 #include "Evloop.h"
 #include "Channel.h"
 #include "IoPoller.h"
-#ifdef OS_LINUX
-#include "Epoll.h"
-#elif defined(OS_MACOSX)
-#include "IoPoller.h"
-#endif
 #include "Poller.h"
 #include "Log.h"
+
 
 using namespace SiNet;
 class IgnoreSignal{

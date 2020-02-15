@@ -2,7 +2,7 @@
 // Created by Jialu  Hu on 2019-08-02.
 //
 #ifdef OS_LINUX
-#include "Epoll.h"
+#include "IoPoller.h"
 #include "Channel.h"
 using namespace SiNet;
 const int MAXSIZE = 1024;

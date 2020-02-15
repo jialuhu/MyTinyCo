@@ -9,6 +9,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/uio.h>
+#include <any>
 #include "InetAddr.h"
 #include "TcpServer.h"
 #include "Buffer.h"
@@ -115,11 +116,9 @@ namespace SiNet {
         WriteCompleteCallback WriteCompleteCb_;
         CloseCallback CloseCb_;
         Buffer input_;
-        std::string respond_head;
         Buffer output_;
         boost::any context_;
-        const char* file_path_;
-        const char* argv_;
+
 
     };
 }
