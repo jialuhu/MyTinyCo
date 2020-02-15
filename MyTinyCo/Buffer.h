@@ -37,8 +37,6 @@ namespace SiNet {
         {
             return findStr(peek(), s, len);
         }
-        int findCrlf() { return findStr("\r\n", 2); }
-
         //扩展空间以及将内容往前挪动
         void makeSpace(size_t len) {
             if (len > writeable()) {
@@ -65,7 +63,6 @@ namespace SiNet {
             for (int i = _readindex; i <= _writeindex; i++) {
                 s1.push_back(_buf[i]);
             }
-            //readindex_ = writeindex_ = 8;
             return s1;
         }
 
@@ -90,29 +87,8 @@ namespace SiNet {
             else
                 _readindex = _writeindex = 0;
         }
-        //void retrieveAll() { update(readable()); }
         size_t readFd(int fd, int &save);
 
-        bool Buffer_find_str(const char *str, std::string &result, size_t len_) {
-            std::string find_string;
-            Buffer_str(find_string);
-            int find = find_string.find(str) + len_;
-            if (find - len_ == 0) {
-                return false;
-            }
-            if (find != find_string.npos) {
-                result = find_string.substr(0, find);
-                size_t len = result.size();
-                _readindex += len;
-                if (readable() == 0) {
-                    _readindex = 0;
-                    _writeindex = 0;
-                }
-            } else {
-                return false;
-            }
-            return true;
-        }
 
         char &operator[](size_t idx) { return _buf[idx]; }
 

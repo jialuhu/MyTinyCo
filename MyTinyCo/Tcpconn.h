@@ -77,7 +77,6 @@ namespace SiNet {
         //进行用户的回调
         void connectEstablished();
 
-        void set_HandleErrno(int fd, std::string &head);
 
         void set_State(State state_){
             conn_state = state_;
@@ -86,15 +85,10 @@ namespace SiNet {
         std::shared_ptr<Channel> getChannle() const { return channel_;}
         EventLoop *getLoop() const { return loop_; }
 
-        void send(const void *v, size_t len);
         void send(const std::string& s);
         void send(const char *s);
         void sendInNotIoThread(const std::string& data);
         void send(const char *s, size_t len);
-
-        void Post_deal(const char* file_path, const char *argv);
-        void set_Handlewrite(const char* filepath, int fd,std::string &head);
-
 
     private:
         typedef std::function<void(TcpConnection &)> ConnectionCallbacks;

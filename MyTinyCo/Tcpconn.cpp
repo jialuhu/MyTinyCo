@@ -57,11 +57,6 @@ void TcpConnection::connDestroyed(){
     loop_->assertInLoopThread();
     channel_->disableAll();
 }
-void TcpConnection::set_HandleErrno(int fd, std::string &head) {
-    respond_head = head;
-    write(channel_->fd(),respond_head.c_str(),respond_head.size());
-    HandleClose();
-}
 
 void TcpConnection::HandleErrno() {
 
@@ -99,7 +94,7 @@ void TcpConnection::sendInLoop(const char *data, size_t len)
 
     if (conn_state == CLOSED)
         return;
-    /*如果已经有数据了，该数据可能是上次没有发送完的数据。不能发送，有可能会造成乱序。*/
+    //有数据可能是上次没有发送完的数据。不能发送,会造成乱序。
     if (!channel_->isWriting() && output_.readable() == 0) {
         n = write(channel_->fd(), data, len);
        if (n >= 0) {
@@ -151,31 +146,4 @@ void TcpConnection::send(const std::string& s)
     send(s.data(), s.size());
 }
 
-void TcpConnection::send(const void *v, size_t len)
-{
-    send(reinterpret_cast<const char*>(v), len);
-}
-
-
-void TcpConnection::Post_deal(const char* file_path, const char *argv){
-    file_path_=file_path;
-    argv_=argv;
-    if(fork()==0)
-    {
-        dup2(channel_->fd(),STDOUT_FILENO);
-        int r=execl(file_path_,argv_,NULL);
-    }
-    wait(nullptr);
-}
-void TcpConnection::set_Handlewrite(const char* filepath, int fd,std::string &head) {
-    write(channel_->fd(),head.c_str(),head.size());
-    int save;
-    int sum = 0;
-    int n;
-    output_.readFd(fd,save);
-    while ((n=output_.readFd(fd,save))>0){
-        sum += n;
-    }
-    channel_->enableWriting();
-}
 
