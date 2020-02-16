@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <chrono>
 #include <sys/time.h>
+#include <stdarg.h>
+#include <signal.h>
 using namespace SiNet;
 log::log():fd_(-1),
             writebyte(0),
