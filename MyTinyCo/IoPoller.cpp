@@ -19,11 +19,12 @@ void Epoll::fillactiveChannel(int number, Channel* channel){
 
 }
 int Epoll::loop_wait(int timeout, std::vector<Channel*>* activeChannel){
-    int number = epoll_wait(epfd_, &EpList_[0], EpList_.size(), timeout);
+    struct epoll_event Events[MAXSIZE];
+    int number = epoll_wait(epfd_, &Events[0], MAXSIZE, timeout);
     if(number>0) {
         for (int i = 0; i < number; i++) {
-            int socketfd = EpList_[i].data.fd;
-            int event = EpList_[i].events;
+            int socketfd = Events[i].data.fd;
+            int event = Events[i].events;
             assert(channels_.find(socketfd) != channels_.end());
             auto actChannel = channels_[socketfd];
             assert(actChannel->fd() == socketfd);
@@ -35,24 +36,25 @@ int Epoll::loop_wait(int timeout, std::vector<Channel*>* activeChannel){
 }
 
 bool Epoll::Register(Channel* channel,int fd) {
-    struct epoll_event ev[1];
+    struct epoll_event ev;
     if(channel->event() & Channel::EREAD){
-        ev[0].events |= EPOLLIN;
+        ev.events |= EPOLLIN;
     }
     if(channel->event() & Channel::EWRITE){
-        ev[0].events |= EPOLLOUT;
+        ev.events |= EPOLLOUT;
     }
-    ev[0].data.fd = fd;
-    if (epoll_ctl(epfd_, EPOLL_CTL_ADD, fd, &ev[0]) < 0){
+    ev.data.fd = fd;
+    if (epoll_ctl(epfd_, EPOLL_CTL_ADD, fd, &ev) < 0){
         std::cout << "EPOLL_CTL_ADD is wrong." << std::endl;
         return false;
     }
-    EpList_.push_back(ev[0]);
+    EpList_.push_back(ev);
     int idx = static_cast<int>(EpList_.size())-1;
     channel->set_index(idx);
     channels_[fd] = channel;
     return true;
 }
+
 bool Epoll::Change(Channel* channel,int fd){
     struct epoll_event changes[1];
     if(channel->is_close()){
@@ -69,6 +71,7 @@ bool Epoll::Change(Channel* channel,int fd){
             channels_[tmp_fd]->set_index(tmp_index);
         }
         channels_.erase(channel->fd());
+        std::cout << "channel->fd: " << channel->fd() << " fd:" << fd << std::endl;
         if (epoll_ctl(epfd_, EPOLL_CTL_DEL, fd, NULL) < 0){
             std::cout << "EPOLL_CTL_DEL is wrong." << std::endl;
             return false;
@@ -98,7 +101,7 @@ void Epoll::updateChannel(Channel* channel) {
         assert(channels_.find(kfd) == channels_.end());
         //该事件还未出现在事件注册表中,如新建立的链接
         //对该事件进行注册
-        assert(Register(channel,epfd_)==true);
+        assert(Register(channel,kfd)==true);
     }
         //更新事件表
     else{
@@ -106,7 +109,7 @@ void Epoll::updateChannel(Channel* channel) {
         assert(channels_[kfd]==channel);
         assert(idx >= 0 && idx < EpList_.size());
         //更改事件
-        assert(Change(channel,epfd_)==true);
+        assert(Change(channel,kfd)==true);
     }
 }
 int Epoll::ReturnEvent(int &event) {

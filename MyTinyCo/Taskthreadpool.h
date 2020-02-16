@@ -11,6 +11,7 @@
 #include <list>
 #include <vector>
 #include <mutex>
+#include <condition_variable>
 
 namespace SiNet {
     typedef std::function<void ()>Task;

@@ -11,7 +11,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include "Poller.h"
-#include "noncopyable.h"
+#include "Noncopyable.h"
 namespace SiNet {
     class Channel;
     class Epoll : public Poller {
