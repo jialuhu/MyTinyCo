@@ -7,23 +7,20 @@
 ## <a name="1">一、简介</a>
 该网络库是一个小型简易的TCP网络库，支持MacOS和Linux平台使用。
 MacOS:Apple LLVM version 9.0.0 (clang-900.0.39.2)测试通过。
-Linux:目前正在开发测试中
+Linux:Ubuntu gcc version 7.4.0测试通过
 
 ## <a name="2">二、背景
-本项目的初衷最初是设计一个能够运行在MacOS上的网络库，以供方便学习。在初学muduo后，采用muduo的接口设计进行了该项目的开发。在muduo
-的接口设计上，采用c++11新特性进行编写。
+本项目的初衷最初是设计一个能够运行在MacOS和Linux上的TCP网络库，以供使用。
 
 ## <a name="3">三、使用概述
 ### 3.1 多平台支持
-在使用前，请确保gcc的版本。如若版本过低无法通过编译。
-支持MacOS和Linux。
-- MacOS：Apple LLVM version 9.0.0 (clang-900.0.39.2)测试通过。
-- Linux：目前正在开发测试中
+- MacOS
+- Linux
 
 ### 3.2 支持如下功能模式
 - 支持定时器功能
 - 支持Reactor模型
-- 支持长连接、非阻塞连接
+- 支持非阻塞连接
 - 支持带有双缓冲异步日志
 - 支持前后台分离的IO读写操作
 - 支持one loop per thread + 单线程模式
@@ -31,12 +28,17 @@ Linux:目前正在开发测试中
 - 支持one loop per thread + IO线程池模式
 - 支持one loop per thread + 任务线程池模式
 
-### 3.3 采用C++11新特性减少Boost库的依赖
-- 智能指针
-- Lambada
-- RAII模式管理资源
+### 3.3 特点
 
-### 3.4 使用简洁
+- 采用C++11新特性减少Boost库的依赖
+- 利用异步I/O多路复用实现并发
+- 控制了内存泄漏
+- 双平台使用
+- 处理速度快
+- 稳定性高
+- 使用简洁
+
+### 3.5 使用示例
 
 例如：echo-server
 ```
@@ -56,8 +58,9 @@ int main()
     return 0;
 }
 ```
-### 3.5 目录结构
-#### 3.5.1 MyTinyCo
+
+### 3.6 目录结构
+#### 3.6.1 MyTinyCo
 该目录存放的是网络库的源代码,文件名称与其功能如下：
 
 - Acceptor-----------封装了accept事件
@@ -80,7 +83,7 @@ int main()
 - TimeEvent----------封装了定时器事件
 - TimeEvent----------封装了定时器事件链表
 
-#### 3.5.2 example
+#### 3.6.2 example
 该目录存放的是一些简单的例子，文件名称与其功能如下：
 
 - DaytimeServer------daytime服务端
@@ -91,13 +94,16 @@ int main()
 
 
 
-### 3.6 下载安装
-下载前请下载或确保已经安装cmake
+### 3.7 下载安装
+#### 3.7.1安装条件
+- cmake version 3.13
+- gcc version 7.4.0及其以上版本
 
 ```
 mkdir build
 cd build
 cmake ..
+su
 make & make install
 ```
 
