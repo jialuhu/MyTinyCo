@@ -16,8 +16,9 @@ void onConnectionTime(const TcpConnectionPtr& conn){
             ptminfo->tm_min, ptminfo->tm_sec);
     std::cout << std::string(date) << std::endl;
     conn->send(date);
-    ::close(conn->getChannle()->fd());
+    int fd = conn->getChannle()->fd();
     conn->getChannle()->disableAll();
+    ::close(fd);
 }
 int main(){
     EventLoop loop;
