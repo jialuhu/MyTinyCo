@@ -12,7 +12,6 @@ WebServer::WebServer(EventLoop *loop, InetAddr &addr):loop_(loop),
     server_.setOnMessageCb(std::bind(&WebServer::onMessage,this,std::placeholders::_1,std::placeholders::_2));
 }
 WebServer::~WebServer(){
-    //std::cout << "~WebServer\n";
 
 }
 void WebServer::start() {
@@ -31,7 +30,6 @@ void WebServer::onMessage(const TcpConnectionPtr &conn, Buffer &buf) {
 
 void WebServer::onConnection(const TcpConnectionPtr &conn) {
     //建立新的http事件
-    //std::cout << "WebServer::onConnection\n";
     conn->setContext(HttpContent());
 }
 
@@ -39,9 +37,8 @@ void WebServer::onConnection(const TcpConnectionPtr &conn) {
 #include "./config/GetConfig.h"
 
 int main(){
-    GetConfig GetConfig_ ("./config/httped.conf");
+    GetConfig GetConfig_ ("../example/config/httped.conf");
     GetConfig_.ReadConfig();
-    GetConfig_.display();
     EventLoop loop;
     InetAddr addr(GetConfig_.Return_Listen(),GetConfig_.Return_ADDR());
     WebServer server(&loop,addr);

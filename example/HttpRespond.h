@@ -11,6 +11,7 @@
 #include "ResPond.h"
 #include <sys/stat.h>
 #include <sys/mman.h>
+using namespace SiNet;
 class GetConfig;
 class HttpRespond{
 public:
@@ -23,20 +24,11 @@ public:
         version_ = version;
     }
 
-    /*void set_Respond_Header(std::string head){
-        Respond_Header_ = head;
-    }*/
 
-    /*void set_ContentLength(std::string length){
-        ContentLength_ = length;
-    }*/
     void set_ContentLanguage(std::string language){
         ContentLanguage_ = language;
     }
 
-    /*void set_ContentType(std::string type){
-        ContentType_ = type;
-    }*/
 
     void set_Connection(std::string Connction){
         Connection_ = Connction;
@@ -63,15 +55,13 @@ public:
         this->B_CGI = B_CGI;
         CGIPath_ = std::move(cgi);
     }
+    void ReadFile(int fd, Buffer& readbuff){
+        int errnos = 0;
+        int bytes = 0;
+        while(bytes = readbuff.readFd(fd,errnos)>0){
 
-    void FillRespond_POST(const SiNet::TcpConnectionPtr &conn){
-        if(B_CGI){
-            method_ = CGIPath_ + method_;
-            conn->Post_deal(method_.c_str(), post_content.c_str());
-        }else{
-            FillRespond_GET(conn);
         }
-
+        close(fd);
     }
     void FillRespond_GET(const SiNet::TcpConnectionPtr &conn){
             if(method_=="/"){
@@ -83,8 +73,7 @@ public:
             if(fd < 0){
                 std::string header(HTTP_NOTFOUND);
                 std::string content(HTTP_CONTENT);
-                conn->set_HandleErrno(fd, header);
-
+                return;
             }
             else{
                 std::string header(HTTP_OK);
@@ -93,11 +82,12 @@ public:
                 char buf[100];
                 sprintf(buf,"Content-Length: %d\r\n\r\n",tbuf.st_size);
                 buf[strlen(buf)]='\0';
-                header = header+buf;
-                int save = 0;
-                conn->set_Handlewrite(method_.c_str(),fd,header);
+                header.append(buf);
+                Buffer readbuff;
+                ReadFile(fd,readbuff);
+                header.append(readbuff.c_str());
+                conn->send(header);
             }
-            close(fd);
     }
 private:
     std::string url_;
@@ -105,12 +95,8 @@ private:
     std::string version_;
 
     std::string post_content;
-
-    //std::string Respond_Header_;
     std::string Host_;
     std::string ContentLanguage_;
-    //std::string ContentLength_;
-    //std::string ContentType_;
     std::string Connection_;
 
     std::string DocumentPath_;
