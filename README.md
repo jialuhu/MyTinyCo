@@ -16,7 +16,7 @@ Linux:Ubuntu gcc version 7.4.0测试通过
 
 ### 2.2 MyTinyCo解剖
 #### 2.2.1 主要概述图
-![image](https://github.com/jialuhu/MyTinyCo/blob/master/testdoc/Reactor.png)
+![image](https://github.com/jialuhu/MyTinyCo/blob/master/doc/Rector.png)
 
 #### 2.2.2 事件循环驱动模块设计
 该模块主要是一个IO线程中的事件循环。它能确保所有注册的事件都在EventLoop对象所在的线程中执行，不用考虑事件的并发。
@@ -159,4 +159,4 @@ nc 127.0.0.1 8000
 siege -r 1000000 -c 1 http://localhost:8000/testmyco.html
 ```
 ### 4.3测试结果
-![image](https://github.com/jialuhu/MyTinyCo/blob/master/testdoc/meitu.jpg)
+![image](https://github.com/jialuhu/MyTinyCo/blob/master/doc/meitu.jpg)
