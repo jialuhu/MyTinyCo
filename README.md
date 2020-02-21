@@ -49,7 +49,7 @@
 - 支持Reactor模型
 - 支持非阻塞连接
 - 支持带有双缓冲异步日志
-- 支持前后台分离的IO读写操作
+- 支持前后台解耦的IO读写操作
 - 支持one loop per thread + 单线程模式
 - 支持one loop per thread + IO线程模式
 - 支持one loop per thread + IO线程池模式
@@ -84,6 +84,81 @@ int main()
     loop.loop();
     return 0;
 }
+```
+
+#### 3.5.1 基本使用介绍
+#### 3.5.1.1 基本回调函数类型
+```
+typedef std::function<void(const TcpConnectionPtr &conn)> ConnectionCallback;
+typedef std::function<void(const TcpConnectionPtr &, Buffer &buf)> OnMessageCallback;
+typedef std::function<void(const TcpConnectionPtr &)> WriteCompleteCallback;
+typedef std::function<void(const TcpConnectionPtr &)> CloseCallback;
+```
+#### 3.5.1.2基本服务端创建
+
+- 创建一个事件驱动循环器
+```
+EventLoop loop;
+```
+
+- 绑定ip及端口
+```
+InetAddr Addr(8000,"127.0.0.1");
+```
+
+- 创建基本服务器
+```
+TcpServer Server(&loop,Addr);
+```
+
+- 设置服务器的回调函数
+```
+ Server.setConnectionCb(ConnectionCallback);
+ Server.setOnMessageCb(OnMessageCallback);
+```
+
+- 启动服务器
+```
+Server.start();
+```
+
+- 启动事件循环驱动
+```
+loop.loop();
+```
+
+
+#### 3.5.1.3基本客户端创建
+
+```
+EventLoop loop;
+```
+
+- 绑定ip及端口
+```
+InetAddr Addr(8000,"127.0.0.1");
+```
+
+- 创建基本服务器
+```
+TcpClient Client(&loop,Addr);
+```
+
+- 设置服务器的回调函数
+```
+ Client.setConnectionCb(ConnectionCallback);
+ Client.setOnMessageCb(OnMessageCallback);
+ Client.setsetCloseCb(CloseCallback cb);
+```
+
+- 启动服务器
+```
+Client.start();
+```
+
+- 启动事件循环驱动
+```
+loop.loop();
 ```
 
 
