@@ -2,6 +2,7 @@
 * <a href="#1">一、简介 </a>
 * <a href="#2">二、背景 </a>
 * <a href="#3">三、使用概述 </a>
+* <a href="#4">三、性能测试 </a>
 
 
 ## <a name="1">一、简介</a>
@@ -107,3 +108,17 @@ su
 make & make install
 ```
 
+## <a name="4">四、性能测试
+
+### 4.1 测试环境相关信息
+- 系   统: MacBook Pro (Retina, 13-inch, Early 2015)
+- CPU型号: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+- CPU个数: 2
+
+### 4.2 测试方案
+利用该网络库编写的HTTP服务器。在本地环境下使用siege进行测试。测试命令如下：
+```
+siege -r 1000000 -c 1 http://localhost:8000/testmyco.html
+```
+### 4.3测试结果
+![image](https://github.com/jialuhu/MyTinyCo/blob/master/testdoc/meitu.jpg)
